@@ -96,6 +96,6 @@ ENV/
 # SQLite DB
 *.sqlite3
 
-# SASS products
+# SASS product files
 *.css
 *.css.map

@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'sass_processor',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +70,8 @@ TEMPLATES = [
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
 
 WSGI_APPLICATION = 'noleluna.wsgi.application'
 

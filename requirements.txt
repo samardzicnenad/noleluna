@@ -1,0 +1,2 @@
+django-sass-processor==0.5.4
+libsass==0.12.3
