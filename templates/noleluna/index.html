@@ -1,6 +1,8 @@
-{% load sass_tags %}
+{% load sass_tags compress %}
 
-<link href="{% sass_src 'noleluna/style.scss' %}" rel="stylesheet" type="text/css" />
+{% compress css %}
+    <link href="{% sass_src 'noleluna/style.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8" />
+{% endcompress %}
 
 <div class="main">
 </div>

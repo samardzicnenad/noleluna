@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'compressor',
     'sass_processor',
 ]
 
@@ -67,11 +68,24 @@ TEMPLATES = [
     },
 ]
 
+# location of the project static files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+# location where SASS will generate files too
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
+
+# enabled compressor
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ROOT = os.path.join(BASE_DIR, 'compressed_static')
 
 WSGI_APPLICATION = 'noleluna.wsgi.application'
 
