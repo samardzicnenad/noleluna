@@ -1,0 +1,82 @@
+html {
+
+  body {
+    #main {
+      background-color: firebrick;
+      padding-top: 15px;
+
+      #topnav {
+        height: 100px;
+
+        #topnav-logo {
+          float: left;
+
+          img {
+            height: 100%;
+          }
+        }
+
+        #topnav-bar {
+          background-color: white;
+          display: flex;
+          height: 100%;
+          justify-content: flex-end;
+
+          .family-member {
+            align-self: center;
+
+            .image-container {
+              height: 80px;
+              position: relative;
+
+              img {
+                width: 76px;
+                border: 2px firebrick solid;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+      }
+
+      #leftnav-n-content {
+        display: inline-flex;
+        height: 100%;
+        padding: 15px;
+        width: 100%;
+
+        #leftnav {
+          width: 100px;
+
+          .leftnav-list {
+            list-style: none;
+            padding-left: 0;
+
+            li:first-child {
+              margin-bottom: 30px;
+            }
+
+            li {
+              border: 1px solid #eae9e9;
+              margin-bottom: 5px;
+              padding: 5px 0;
+              text-align: center;
+
+              a {
+                color: white;
+                font-family: Ubuntu, serif;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+
+        #content {
+          margin-left: 15px;
+          width: inherit;
+          background-color: white;
+        }
+      }
+    }
+  }
+}

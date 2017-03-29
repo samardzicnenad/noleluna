@@ -1,8 +1,57 @@
-{% load sass_tags compress %}
+{% load static sass_tags compress %}
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 {% compress css %}
-    <link href="{% sass_src 'noleluna/style.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8" />
+    <link href="{% sass_src 'noleluna/style.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
+    <link href="{% sass_src 'noleluna/index.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
 {% endcompress %}
 
-<div class="main">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div id="main">
+    <div id="topnav">
+        <div class="container-fluid">
+            <div id="topnav-logo">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'noleluna/img/noleluna.png' %}" alt="Logo"/>
+                </a>
+            </div>
+            <div id="topnav-bar">
+                <div class="family-member pull-right">
+                    <div class="image-container">
+                        <a href="{% url 'index' %}"
+                           data-toggle="dropdown"
+                           role="button"
+                           aria-expanded="false">
+                            <img id="profile-image"
+                                 src="{% static 'noleluna/img/neno.png' %}"
+                                 alt="Face"/><span class="down-caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="{% url 'index' %}">Something 1</a></li>
+                            <li><a href="{% url 'index' %}">Something 2</a></li>
+                            <li><a href="{% url 'index' %}">Something 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="leftnav-n-content">
+        <div id="leftnav">
+            <ul class="leftnav-list">
+                <li><a href="{% url 'index' %}">Blog</a></li>
+                <li><a href="{% url 'index' %}">Nole</a></li>
+                <li><a href="{% url 'index' %}">Luna</a></li>
+                <li><a href="{% url 'index' %}">Ceca</a></li>
+                <li><a href="{% url 'index' %}">Neno</a></li>
+            </ul>
+        </div>
+        <div id="content">
+        </div>
+    </div>
+
 </div>
