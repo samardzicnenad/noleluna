@@ -1,0 +1,9 @@
+{% extends "noleluna/index.html" %}
+
+{% block content %}
+    <div>My nickname is: {{ family_member_nick|title }}</div>
+    <div>I was born on: {{ family_member_id }}</div>
+    <div>This is me:
+        {% include "noleluna/mugshot.html" %}
+    </div>
+{% endblock %}

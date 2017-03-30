@@ -1,10 +1,11 @@
 {% load static sass_tags compress %}
+{% load custom_tags %}
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 {% compress css %}
-    <link href="{% sass_src 'noleluna/style.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
-    <link href="{% sass_src 'noleluna/index.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
+    <link href="{% sass_src 'noleluna/css/style.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
+    <link href="{% sass_src 'noleluna/css/index.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
 {% endcompress %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,15 +27,25 @@
                            data-toggle="dropdown"
                            role="button"
                            aria-expanded="false">
-                            <img id="profile-image"
-                                 src="{% static 'noleluna/img/neno.png' %}"
-                                 alt="Face"/><span class="down-caret"></span>
+                            {% switch family_member_id %}
+                                {% case '20110913' %}
+                                    <img id="profile-image" src="{% static 'noleluna/img/nole.png' %}" alt="Face"/><span class="down-caret"></span>
+                                {% case '20150102' %}
+                                    <img id="profile-image" src="{% static 'noleluna/img/luna.png' %}" alt="Face"/><span class="down-caret"></span>
+                                {% case '19760525' %}
+                                    <img id="profile-image" src="{% static 'noleluna/img/ceca.png' %}" alt="Face"/><span class="down-caret"></span>
+                                {% case '19760702' %}
+                                    <img id="profile-image" src="{% static 'noleluna/img/neno.png' %}" alt="Face"/><span class="down-caret"></span>
+                                {% else %}
+                                    <img id="profile-image" src="{% static 'noleluna/img/samardzici.png' %}" alt="Face"/><span class="down-caret"></span>
+                            {% endswitch %}
                         </a>
+                        {% if family_member_id %}
                         <ul class="member-options dropdown-menu dropdown-menu-right">
-                            <li><a href="{% url 'index' %}">Mugshot</a></li>
-                            <li><a href="{% url 'index' %}">Bio</a></li>
-                            <li><a href="{% url 'index' %}">Something else</a></li>
+                            <li><a href="{% url 'family_member_bio' family_member_id %}">Bio</a></li>
+                            <li><a href="{% url 'family_member' family_member_id %}">Something else</a></li>
                         </ul>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -49,28 +60,30 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'index' %}">
+                    <a href="{% url 'family_member' 20110913 %}">
                         <div>Nole</div>
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'index' %}">
+                    <a href="{% url 'family_member' 20150102 %}">
                         <div>Luna</div>
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'index' %}">
+                    <a href="{% url 'family_member' 19760525 %}">
                         <div>Ceca</div>
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'index' %}">
+                    <a href="{% url 'family_member' 19760702 %}">
                         <div>Neno</div>
                     </a>
                 </li>
             </ul>
         </div>
         <div id="content">
+        {% block content %}
+        {% endblock %}
         </div>
     </div>
 

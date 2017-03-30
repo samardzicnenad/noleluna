@@ -20,5 +20,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^(?P<member_id>[0-9]+)/$', views.family_member, name='family_member'),
+    url(r'^(?P<member_id>[0-9]+)/bio/$', views.family_member_bio, name='family_member_bio'),
     url(r'^admin/', admin.site.urls),
 ]

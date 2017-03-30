@@ -1,0 +1,14 @@
+{% load static custom_tags %}
+
+{% switch family_member_id %}
+    {% case '20110913' %}
+        <img style="width: 200px;" src="{% static 'noleluna/img/nole.png' %}"/>
+    {% case '20150102' %}
+        <img style="width: 200px;" src="{% static 'noleluna/img/luna.png' %}"/>
+    {% case '19760525' %}
+        <img style="width: 200px;" src="{% static 'noleluna/img/ceca.png' %}"/>
+    {% case '19760702' %}
+        <img style="width: 200px;" src="{% static 'noleluna/img/neno.png' %}"/>
+    {% else %}
+        <img style="width: 200px;" src="{% static 'noleluna/img/samardzici.png' %}"/>
+{% endswitch %}
