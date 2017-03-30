@@ -25,14 +25,19 @@ html {
           .family-member {
             align-self: center;
 
-            .image-container {
+            #image-container {
               height: 80px;
               position: relative;
 
-              img {
+              #profile-image {
                 width: 76px;
                 border: 2px firebrick solid;
                 border-radius: 50%;
+              }
+
+              .member-options li a {
+                color: firebrick;
+                font-weight: bold;
               }
             }
           }
@@ -48,7 +53,7 @@ html {
         #leftnav {
           width: 100px;
 
-          .leftnav-list {
+          #leftnav-list {
             list-style: none;
             padding-left: 0;
 
@@ -57,15 +62,18 @@ html {
             }
 
             li {
-              border: 1px solid #eae9e9;
+              border: 1px solid white;
               margin-bottom: 5px;
-              padding: 5px 0;
               text-align: center;
 
               a {
                 color: white;
                 font-family: Ubuntu, serif;
                 text-decoration: none;
+
+                div {
+                  padding: 5px 0;
+                }
               }
             }
           }

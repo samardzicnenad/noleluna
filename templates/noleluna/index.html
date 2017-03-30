@@ -21,7 +21,7 @@
             </div>
             <div id="topnav-bar">
                 <div class="family-member pull-right">
-                    <div class="image-container">
+                    <div id="image-container">
                         <a href="{% url 'index' %}"
                            data-toggle="dropdown"
                            role="button"
@@ -30,10 +30,10 @@
                                  src="{% static 'noleluna/img/neno.png' %}"
                                  alt="Face"/><span class="down-caret"></span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="{% url 'index' %}">Something 1</a></li>
-                            <li><a href="{% url 'index' %}">Something 2</a></li>
-                            <li><a href="{% url 'index' %}">Something 3</a></li>
+                        <ul class="member-options dropdown-menu dropdown-menu-right">
+                            <li><a href="{% url 'index' %}">Mugshot</a></li>
+                            <li><a href="{% url 'index' %}">Bio</a></li>
+                            <li><a href="{% url 'index' %}">Something else</a></li>
                         </ul>
                     </div>
                 </div>
@@ -42,12 +42,32 @@
     </div>
     <div id="leftnav-n-content">
         <div id="leftnav">
-            <ul class="leftnav-list">
-                <li><a href="{% url 'index' %}">Blog</a></li>
-                <li><a href="{% url 'index' %}">Nole</a></li>
-                <li><a href="{% url 'index' %}">Luna</a></li>
-                <li><a href="{% url 'index' %}">Ceca</a></li>
-                <li><a href="{% url 'index' %}">Neno</a></li>
+            <ul id="leftnav-list">
+                <li>
+                    <a href="{% url 'index' %}">
+                        <div>Blog</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <div>Nole</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <div>Luna</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <div>Ceca</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <div>Neno</div>
+                    </a>
+                </li>
             </ul>
         </div>
         <div id="content">
