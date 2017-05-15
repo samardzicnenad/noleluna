@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -21,8 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '6^+&b64!$v7au!+@%=)e!(+s8ufh3xq0d*55kvyyze&ur=_&li'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if not ENVIRONMENT or ENVIRONMENT in ['development']:
+    MEDIA_ROOT = "./media/"
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -39,6 +43,8 @@ INSTALLED_APPS = [
     # 'bootstrap3',
     'compressor',
     'sass_processor',
+
+    'blog_post',
 ]
 
 MIDDLEWARE = [

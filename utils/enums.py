@@ -71,3 +71,11 @@ class AutoNumberStructuredEnum(Enum, metaclass=EnumeratedEnumMeta):
 class BLOG_POST_STATE(StructuredEnum):
     DRAFT = 1, {'label': 'Draft'}
     PUBLISHED = 2, {'label': 'Published'}
+
+
+class FAMILY_MEMBER(StructuredEnum):
+    SAMARDZICI = 0, {'label': 'Samardzic Family'}
+    CECA = 19760525, {'label': 'Svetlana Samardzic'}
+    NENO = 19760702, {'label': 'Nenad Samardzic'}
+    NOLE = 20110913, {'label': 'Novak Samardzic'}
+    LUNA = 20150102, {'label': 'Luna Samardzic'}

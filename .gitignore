@@ -99,3 +99,6 @@ ENV/
 # SASS product files
 *.css
 *.css.map
+
+# media files
+media/
