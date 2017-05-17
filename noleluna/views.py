@@ -3,10 +3,6 @@ from django.shortcuts import render
 from . import SAMARDZICI
 
 
-def index(request):
-    return render(request, 'noleluna/index.html')
-
-
 def family_member(request, member_id):
     data = {
         'family_member_id': member_id,

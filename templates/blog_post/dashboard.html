@@ -10,13 +10,17 @@
 
 {% block content %}
     <div id="summary-message">
-        {% if blog_posts|length > 0 %}
-            Hey, {{ user|capfirst }}. There {{ blog_posts|length|pluralize:"is,are" }} {{ blog_posts|length }} blog post{{ blog_posts|length|pluralize }} about Samardzic family:
+        {% if index_page %}
+            <div>Hey, {{ user|capfirst }}.</div>
+            <div>The index page will display only a couple of the latest published posts about Samardzic family. For all of the posts go to our <a href="{% url 'blog_posts:blog_posts_view' %}">blog</a></div>
+        {% elif posts|length > 0 %}
+            <div>Hey, {{ user|capfirst }}.</div>
+            <div>There {{ posts|length|pluralize:"is,are" }} {{ posts|length }} published post{{ posts|length|pluralize }} about Samardzic family:</div>
         {% else %}
-            Sorry, {{ user|capfirst }}. There are no blog posts about Samardzic family.
+            Sorry, {{ user|capfirst }}. There are no published posts about Samardzic family.
         {% endif %}
     </div>
-    {% for blog_post in blog_posts %}
+    {% for post in posts %}
         {% include "blog_post/blog_post.html" %}
     {% endfor %}
 {% endblock %}

@@ -5,23 +5,23 @@
 {% endcompress %}
 
 {% block content %}
-    <div id="blog-post-{{ blog_post.pk }}" class="blog-post">
-        <div class="blog-post-title">{{ blog_post.title }}</div>
+    <div id="blog-post-{{ post.pk }}" class="blog-post">
+        <div class="blog-post-title">{{ post.title }}</div>
         <div class="blog-post-date-wrapper">
             <div class="blog-post-date-label">created on:</div>
-            <div class="blog-post-date">{{ blog_post.created_on }}</div>
+            <div class="blog-post-date">{{ post.created_on }}</div>
         </div>
         <div class="blog-post-date-wrapper">
             <div class="blog-post-date-label">edited on:</div>
-            <div class="blog-post-date">{{ blog_post.last_edited_on }}</div>
+            <div class="blog-post-date">{{ post.last_edited_on }}</div>
         </div>
         <div class="blog-post-tags-wrapper">
             <div class="blog-post-tags-label">tags:</div>
-            <div class="blog-post-tags">{{ blog_post.tags }}</div>
+            <div class="blog-post-tags">{{ post.tags }}</div>
         </div>
-        <div class="blog-post-content">{{ blog_post.content }}</div>
-        {% if blog_post.image %}
-            <img id="image-{{ blog_post.pk }}" class="blog-post-image" src="{{media_url}}{{ blog_post.image }}">
+        <div class="blog-post-content">{{ post.content }}</div>
+        {% if post.image %}
+            <img id="image-{{ post.pk }}" class="blog-post-image" src="{{media_url}}{{ post.image }}">
         {% endif %}
         <br/>
     </div>
