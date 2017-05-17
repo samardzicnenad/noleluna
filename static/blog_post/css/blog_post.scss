@@ -2,12 +2,12 @@
   margin: 30px 40px;
   border-radius: 10px;
   border: 2px outset crimson;
+  padding: 0 10px;
 
   .blog-post-title {
     font-size: 22px;
     font-weight: bold;
     color: darkorange;
-    padding-left: 10px;
     padding-top: 10px;
   }
 
@@ -16,7 +16,6 @@
     font-weight: bold;
     font-size: smaller;
     width: 250px;
-    padding-left: 10px;
 
     .blog-post-date {
       color: olive;
@@ -27,7 +26,6 @@
     margin-top: 5px;
     font-weight: bold;
     font-size: smaller;
-    padding-left: 10px;
 
     .blog-post-tags {
       color: olive;
@@ -36,12 +34,10 @@
 
   .blog-post-content {
     margin-top: 20px;
-    padding-left: 10px;
   }
 
   .blog-post-image {
     margin-top: 20px;
-    padding-left: 10px;
     padding-bottom: 10px;
   }
 }
