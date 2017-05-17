@@ -1,16 +1,19 @@
 {% load static sass_tags compress %}
 {% load custom_tags %}
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-{% compress css %}
-    <link href="{% sass_src 'noleluna/css/style.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
-    <link href="{% sass_src 'noleluna/css/index.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
-{% endcompress %}
+{% block css_head %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    {% compress css %}
+        <link href="{% sass_src 'noleluna/css/style.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
+        <link href="{% sass_src 'noleluna/css/index.scss' %}" rel="stylesheet" type="text/x-scss" charset="utf-8"/>
+    {% endcompress %}
+{% endblock %}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+{% block js_head %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
 
 <div id="main">
     <div id="topnav">
@@ -28,22 +31,46 @@
                            role="button"
                            aria-expanded="false">
                             {% switch family_member_id %}
-                                {% case '20110913' %}
-                                    <img id="profile-image" src="{% static 'noleluna/img/nole.png' %}" alt="Face"/><span class="down-caret"></span>
-                                {% case '20150102' %}
-                                    <img id="profile-image" src="{% static 'noleluna/img/luna.png' %}" alt="Face"/><span class="down-caret"></span>
-                                {% case '19760525' %}
-                                    <img id="profile-image" src="{% static 'noleluna/img/ceca.png' %}" alt="Face"/><span class="down-caret"></span>
-                                {% case '19760702' %}
-                                    <img id="profile-image" src="{% static 'noleluna/img/neno.png' %}" alt="Face"/><span class="down-caret"></span>
-                                {% else %}
-                                    <img id="profile-image" src="{% static 'noleluna/img/samardzici.png' %}" alt="Face"/><span class="down-caret"></span>
+                            {% case '20110913' %}
+                            <img id="profile-image" src="{% static 'noleluna/img/nole.png' %}" alt="Face"/><span
+                                class="down-caret"></span>
+                            {% case '20150102' %}
+                            <img id="profile-image" src="{% static 'noleluna/img/luna.png' %}" alt="Face"/><span
+                                class="down-caret"></span>
+                            {% case '19760525' %}
+                            <img id="profile-image" src="{% static 'noleluna/img/ceca.png' %}" alt="Face"/><span
+                                class="down-caret"></span>
+                            {% case '19760702' %}
+                            <img id="profile-image" src="{% static 'noleluna/img/neno.png' %}" alt="Face"/><span
+                                class="down-caret"></span>
+                            {% else %}
+                            <img id="profile-image" src="{% static 'noleluna/img/samardzici.png' %}" alt="Face"/><span
+                                class="down-caret"></span>
                             {% endswitch %}
                         </a>
                         {% if family_member_id %}
                         <ul class="member-options dropdown-menu dropdown-menu-right">
-                            <li><a href="{% url 'family_member_bio' family_member_id %}">Bio</a></li>
-                            <li><a href="{% url 'family_member' family_member_id %}">Something else</a></li>
+                            <li>
+                                <a href="{% url 'family_member_bio' family_member_id %}">Bio</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'family_member' family_member_id %}">Something else</a>
+                            </li>
+                        </ul>
+                        {% else %}
+                        <ul class="member-options dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="{% url 'family_member' 20110913 %}">Nole</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'family_member' 20150102 %}">Luna</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'family_member' 19760525 %}">Ceca</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'family_member' 19760702 %}">Neno</a>
+                            </li>
                         </ul>
                         {% endif %}
                     </div>
@@ -55,7 +82,7 @@
         <div id="leftnav">
             <ul id="leftnav-list">
                 <li>
-                    <a href="{% url 'index' %}">
+                    <a href="{% url 'blog_posts:blog_posts_view' %}">
                         <div>Blog</div>
                     </a>
                 </li>
@@ -82,9 +109,8 @@
             </ul>
         </div>
         <div id="content">
-        {% block content %}
-        {% endblock %}
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
-
 </div>

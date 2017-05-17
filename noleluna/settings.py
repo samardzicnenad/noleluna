@@ -25,6 +25,7 @@ SECRET_KEY = '6^+&b64!$v7au!+@%=)e!(+s8ufh3xq0d*55kvyyze&ur=_&li'
 
 if not ENVIRONMENT or ENVIRONMENT in ['development']:
     MEDIA_ROOT = "./media/"
+    MEDIA_URL = "/media/"
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
 

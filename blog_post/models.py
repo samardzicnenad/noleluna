@@ -1,6 +1,6 @@
 from django.db import models
-
 from multiselectfield import MultiSelectField
+
 from utils.enums import BLOG_POST_STATE, FAMILY_MEMBER
 
 
