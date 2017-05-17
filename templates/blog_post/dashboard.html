@@ -1,0 +1,22 @@
+{% extends "noleluna/index.html" %}
+{% load sass_tags compress %}
+
+{% block css_head %}
+    {{ block.super }}
+    {% compress css %}
+        <link rel="stylesheet" href="{% sass_src 'blog_post/css/dashboard.scss' %}" type="text/x-scss" charset="utf-8">
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+    <div id="summary-message">
+        {% if blog_posts|length > 0 %}
+            Hey, {{ user|capfirst }}. There {{ blog_posts|length|pluralize:"is,are" }} {{ blog_posts|length }} blog post{{ blog_posts|length|pluralize }} about Samardzic family:
+        {% else %}
+            Sorry, {{ user|capfirst }}. There are no blog posts about Samardzic family.
+        {% endif %}
+    </div>
+    {% for blog_post in blog_posts %}
+        {% include "blog_post/blog_post.html" %}
+    {% endfor %}
+{% endblock %}
