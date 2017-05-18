@@ -23,7 +23,7 @@ from . import views
 urlpatterns = [
     url(r'^$', IndexBlogPostView.as_view(), name='index'),
     url(r'^(?P<member_id>[0-9]+)/$', views.family_member, name='family_member'),
-    url(r'^(?P<member_id>[0-9]+)/bio/$', views.family_member_bio, name='family_member_bio'),
+    url(r'^(?P<member_id>[0-9]+)/else/$', views.family_member_plus, name='family_member_plus'),
     url(r'^admin/', admin.site.urls),
 
     url(r'^posts/', include('blog_post.urls', namespace="blog_posts")),

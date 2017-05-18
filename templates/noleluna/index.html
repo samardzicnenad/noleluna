@@ -51,10 +51,10 @@
                         {% if family_member_id %}
                         <ul class="member-options dropdown-menu dropdown-menu-right">
                             <li>
-                                <a href="{% url 'family_member_bio' family_member_id %}">Bio</a>
+                                <a href="{% url 'family_member' family_member_id %}">Bio</a>
                             </li>
                             <li>
-                                <a href="{% url 'family_member' family_member_id %}">Something else</a>
+                                <a href="{% url 'family_member_plus' family_member_id %}">Something else</a>
                             </li>
                         </ul>
                         {% else %}

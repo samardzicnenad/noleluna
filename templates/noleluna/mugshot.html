@@ -1,14 +1,18 @@
-{% load static custom_tags %}
+{% load static custom_tags sass_tags compress %}
+
+{% compress css %}
+    <link rel="stylesheet" href="{% sass_src 'noleluna/css/mugshot.scss' %}" type="text/x-scss" charset="utf-8">
+{% endcompress %}
 
 {% switch family_member_id %}
     {% case '20110913' %}
-        <img style="width: 200px;" src="{% static 'noleluna/img/nole.png' %}"/>
+        <img class="mugshot" src="{% static 'noleluna/img/nole.png' %}"/>
     {% case '20150102' %}
-        <img style="width: 200px;" src="{% static 'noleluna/img/luna.png' %}"/>
+        <img class="mugshot" src="{% static 'noleluna/img/luna.png' %}"/>
     {% case '19760525' %}
-        <img style="width: 200px;" src="{% static 'noleluna/img/ceca.png' %}"/>
+        <img class="mugshot" src="{% static 'noleluna/img/ceca.png' %}"/>
     {% case '19760702' %}
-        <img style="width: 200px;" src="{% static 'noleluna/img/neno.png' %}"/>
+        <img class="mugshot" src="{% static 'noleluna/img/neno.png' %}"/>
     {% else %}
-        <img style="width: 200px;" src="{% static 'noleluna/img/samardzici.png' %}"/>
+        <img class="mugshot" src="{% static 'noleluna/img/samardzici.png' %}"/>
 {% endswitch %}

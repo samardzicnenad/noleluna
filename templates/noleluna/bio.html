@@ -1,9 +1,27 @@
 {% extends "noleluna/index.html" %}
+{% load sass_tags compress %}
+
+{% block css_head %}
+    {{ block.super }}
+    {% compress css %}
+        <link rel="stylesheet" href="{% sass_src 'noleluna/css/bio.scss' %}" type="text/x-scss" charset="utf-8">
+    {% endcompress %}
+{% endblock %}
 
 {% block content %}
-    <div>My nickname is: {{ family_member_nick|title }}</div>
-    <div>I was born on: {{ family_member_id }}</div>
-    <div>This is me:
-        {% include "noleluna/mugshot.html" %}
+    <div class="bio-wrapper">
+        <div class="left-bio">
+            <div class="bio-item-greet">Hey, {{ user|capfirst }}.</div>
+            <div class="bio-item-greet">Nice to see you!</div>
+            <br/>
+            <div class="bio-item">My name is {{ family_member_first|capfirst }} Samardzic, but I am also known as {{ family_member_nick|capfirst }}</div>
+            <div class="bio-item">I was born on {{ family_member_date }}</div>
+            <br/>
+            <div class="bio-item">Here's a little bit about me:</div>
+            <div class="bio-item">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique laoreet felis, ac varius tellus finibus eu. Cras scelerisque elementum urna, ut commodo lorem feugiat quis. Aliquam dictum enim diam, tempor semper lacus vehicula eget. Sed faucibus, dolor at elementum hendrerit, arcu sapien tincidunt dui, id consequat dolor ex nec erat. Aliquam vitae malesuada nisi. Integer consectetur tortor nec velit maximus interdum. Quisque mi sapien, facilisis eget venenatis sed, lacinia vel nisi. Fusce et lacus pellentesque, dictum mi a, mollis felis. Sed tempus, sem a dapibus porta, libero magna euismod mi, quis elementum libero orci vitae mauris. Sed interdum, augue sit amet posuere tempor, nibh magna porttitor mi, a pellentesque dolor mi vel velit. In egestas turpis id lacus feugiat dictum. Vestibulum quis purus sit amet diam molestie interdum. Vestibulum sit amet sollicitudin magna, nec ultrices diam. Proin eget sapien quis urna volutpat dignissim. Nullam arcu nulla, finibus eu dapibus ac, porttitor in neque. Nullam quam libero, lacinia id sollicitudin sed, condimentum ac quam. Praesent quis ante bibendum, rutrum massa vitae, condimentum dui. Sed lacinia mauris eget fermentum laoreet. Nullam sit amet convallis magna, vitae pellentesque metus. Duis ullamcorper laoreet sem, faucibus semper neque dictum eget. Nam nec libero venenatis, auctor quam vitae, tincidunt mauris. Curabitur sit amet enim iaculis, faucibus odio ac, aliquet ex.</div>
+        </div>
+        <div class="right-bio">
+            {% include "noleluna/mugshot.html" %}
+        </div>
     </div>
 {% endblock %}

@@ -1,0 +1,25 @@
+.bio-wrapper {
+  margin: 30px;
+
+  .left-bio {
+    width: 50%;
+    float: left;
+    padding-right: 20px;
+
+    .bio-item-greet {
+      font-size: 22px;
+      color: firebrick;
+      font-weight: bold;
+    }
+
+    .bio-item {
+      font-size: 20px;
+      color: steelblue;
+    }
+  }
+
+  .right-bio {
+    width: 50%;
+    float: right;
+  }
+}
