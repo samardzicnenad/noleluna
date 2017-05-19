@@ -17,11 +17,11 @@ from django.conf import settings
 from django.conf.urls import url, include, static
 from django.contrib import admin
 
-from blog_post.views import IndexBlogPostView
+from blog_post.views import BlogPostView
 from . import views
 
 urlpatterns = [
-    url(r'^$', IndexBlogPostView.as_view(), name='index'),
+    url(r'^$', BlogPostView.as_view(), {'index_page': True}, name='index'),
     url(r'^(?P<member_id>[0-9]{8})/$', views.family_member, {'related': False}, name='family_member'),
     url(r'^(?P<member_id>[0-9]{8})/related/$', views.family_member, {'related': True}, name='family_member_related'),
     url(r'^admin/', admin.site.urls),
