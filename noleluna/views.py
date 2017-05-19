@@ -10,7 +10,4 @@ def family_member(request, member_id, plus):
         'family_member_nick': FAMILY_MEMBER.display_label(member_id).lower(),
         'family_member_date': "{}/{}/{}".format(member_id[4:6], member_id[6:], member_id[:4]),
     }
-    if not plus:
-        return render(request, 'noleluna/bio.html', data)
-    else:
-        return render(request, 'noleluna/plus.html', data)
+    return render(request, 'noleluna/plus.html', data) if plus else render(request, 'noleluna/bio.html', data)

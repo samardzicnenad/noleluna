@@ -19,6 +19,7 @@
             <img class="mugshot" src="{% static 'noleluna/img/samardzici.png' %}"/>
     {% endswitch %}
 {% endcomment %}
+
 {% with "noleluna/img/"|add:family_member_id|add:".png" as image_src %}
     <img class="mugshot" src="{% static image_src %}"/>
 {% endwith %}

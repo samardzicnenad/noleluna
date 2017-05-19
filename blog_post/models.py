@@ -13,8 +13,8 @@ class BlogPost(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_edited_on = models.DateTimeField(auto_now=True)
 
-    def get_state(self):
-        return BLOG_POST_STATE.key(self.state)
+    def tag(self):
+        return [FAMILY_MEMBER.display_label(tag_key) for tag_key in self.tags]
 
     def __str__(self):
         return '{}'.format(self.title)
