@@ -40,8 +40,12 @@ class StructuredEnum(Enum, metaclass=EnumeratedEnumMeta):
         return [event.label for event in cls]
 
     @classmethod
-    def display(cls, value):
-        return next((item.label for item in cls if item.value == value), '')
+    def display_label(cls, value):
+        return next((item.label for item in cls if item.value == int(value)), '')
+
+    @classmethod
+    def display_name(cls, value):
+        return next((item.first_name for item in cls if item.value == int(value)), '')
 
     @classmethod
     def reverse(cls, label):
@@ -74,8 +78,8 @@ class BLOG_POST_STATE(StructuredEnum):
 
 
 class FAMILY_MEMBER(StructuredEnum):
-    SAMARDZICI = 0, {'label': 'Samardzic Family'}
-    CECA = 19760525, {'label': 'Svetlana Samardzic'}
-    NENO = 19760702, {'label': 'Nenad Samardzic'}
-    NOLE = 20110913, {'label': 'Novak Samardzic'}
-    LUNA = 20150102, {'label': 'Luna Samardzic'}
+    SAMARDZICI = 0, {'label': 'Samardzici', 'first_name': 'Samardzici'}
+    SVETLANA = 19760525, {'label': 'Ceca', 'first_name': 'Svetlana'}
+    NENAD = 19760702, {'label': 'Nenad', 'first_name': 'Nenad'}
+    NOVAK = 20110913, {'label': 'Nole', 'first_name': 'Novak'}
+    LUNA = 20150102, {'label': 'Luna', 'first_name': 'Luna'}

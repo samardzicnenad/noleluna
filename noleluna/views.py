@@ -1,23 +1,16 @@
 from django.shortcuts import render
 
-from . import SAMARDZICI
+from utils.enums import FAMILY_MEMBER
 
 
-def family_member(request, member_id):
+def family_member(request, member_id, plus):
     data = {
         'family_member_id': member_id,
-        'family_member_first': SAMARDZICI.get(member_id).get('name').lower(),
-        'family_member_nick': SAMARDZICI.get(member_id).get('nickname').lower(),
+        'family_member_first': FAMILY_MEMBER.display_name(member_id).lower(),
+        'family_member_nick': FAMILY_MEMBER.display_label(member_id).lower(),
         'family_member_date': "{}/{}/{}".format(member_id[4:6], member_id[6:], member_id[:4]),
     }
-    return render(request, 'noleluna/bio.html', data)
-
-
-def family_member_plus(request, member_id):
-    data = {
-        'family_member_id': member_id,
-        'family_member_first': SAMARDZICI.get(member_id).get('name').lower(),
-        'family_member_nick': SAMARDZICI.get(member_id).get('nickname').lower(),
-        'family_member_date': "{}/{}/{}".format(member_id[4:6], member_id[6:], member_id[:4]),
-    }
-    return render(request, 'noleluna/plus.html', data)
+    if not plus:
+        return render(request, 'noleluna/bio.html', data)
+    else:
+        return render(request, 'noleluna/plus.html', data)

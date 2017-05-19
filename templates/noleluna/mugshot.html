@@ -4,15 +4,21 @@
     <link rel="stylesheet" href="{% sass_src 'noleluna/css/mugshot.scss' %}" type="text/x-scss" charset="utf-8">
 {% endcompress %}
 
-{% switch family_member_id %}
-    {% case '20110913' %}
-        <img class="mugshot" src="{% static 'noleluna/img/nole.png' %}"/>
-    {% case '20150102' %}
-        <img class="mugshot" src="{% static 'noleluna/img/luna.png' %}"/>
-    {% case '19760525' %}
-        <img class="mugshot" src="{% static 'noleluna/img/ceca.png' %}"/>
-    {% case '19760702' %}
-        <img class="mugshot" src="{% static 'noleluna/img/neno.png' %}"/>
-    {% else %}
-        <img class="mugshot" src="{% static 'noleluna/img/samardzici.png' %}"/>
-{% endswitch %}
+{% comment %}
+    <p>KEEPING AN EXAMPLE OF SWITCH-CASE USAGE</p>
+    {% switch family_member_id %}
+        {% case '20110913' %}
+            <img class="mugshot" src="{% static 'noleluna/img/nole.png' %}"/>
+        {% case '20150102' %}
+            <img class="mugshot" src="{% static 'noleluna/img/luna.png' %}"/>
+        {% case '19760525' %}
+            <img class="mugshot" src="{% static 'noleluna/img/ceca.png' %}"/>
+        {% case '19760702' %}
+            <img class="mugshot" src="{% static 'noleluna/img/neno.png' %}"/>
+        {% else %}
+            <img class="mugshot" src="{% static 'noleluna/img/samardzici.png' %}"/>
+    {% endswitch %}
+{% endcomment %}
+{% with "noleluna/img/"|add:family_member_id|add:".png" as image_src %}
+    <img class="mugshot" src="{% static image_src %}"/>
+{% endwith %}

@@ -30,23 +30,13 @@
                            data-toggle="dropdown"
                            role="button"
                            aria-expanded="false">
-                            {% switch family_member_id %}
-                            {% case '20110913' %}
-                            <img id="profile-image" src="{% static 'noleluna/img/nole.png' %}" alt="Face"/><span
-                                class="down-caret"></span>
-                            {% case '20150102' %}
-                            <img id="profile-image" src="{% static 'noleluna/img/luna.png' %}" alt="Face"/><span
-                                class="down-caret"></span>
-                            {% case '19760525' %}
-                            <img id="profile-image" src="{% static 'noleluna/img/ceca.png' %}" alt="Face"/><span
-                                class="down-caret"></span>
-                            {% case '19760702' %}
-                            <img id="profile-image" src="{% static 'noleluna/img/neno.png' %}" alt="Face"/><span
-                                class="down-caret"></span>
+                            {% if family_member_id %}
+                                {% with "noleluna/img/"|add:family_member_id|add:".png" as image_src %}
+                                    <img id="profile-image" src="{% static image_src %}" alt="Face"/><span class="down-caret"></span>
+                                {% endwith %}
                             {% else %}
-                            <img id="profile-image" src="{% static 'noleluna/img/samardzici.png' %}" alt="Face"/><span
-                                class="down-caret"></span>
-                            {% endswitch %}
+                                <img id="profile-image" src="{% static 'noleluna/img/0.png' %}" alt="Face"/><span class="down-caret"></span>
+                            {%endif %}
                         </a>
                         {% if family_member_id %}
                         <ul class="member-options dropdown-menu dropdown-menu-right">
@@ -60,16 +50,16 @@
                         {% else %}
                         <ul class="member-options dropdown-menu dropdown-menu-right">
                             <li>
-                                <a href="{% url 'family_member' 20110913 %}">Nole</a>
+                                <a href="{% url 'family_member' 20110913 %}">Novak</a>
                             </li>
                             <li>
                                 <a href="{% url 'family_member' 20150102 %}">Luna</a>
                             </li>
                             <li>
-                                <a href="{% url 'family_member' 19760525 %}">Ceca</a>
+                                <a href="{% url 'family_member' 19760525 %}">Svetlana</a>
                             </li>
                             <li>
-                                <a href="{% url 'family_member' 19760702 %}">Neno</a>
+                                <a href="{% url 'family_member' 19760702 %}">Nenad</a>
                             </li>
                         </ul>
                         {% endif %}
@@ -88,7 +78,7 @@
                 </li>
                 <li>
                     <a href="{% url 'family_member' 20110913 %}">
-                        <div>Nole</div>
+                        <div>Novak</div>
                     </a>
                 </li>
                 <li>
@@ -98,12 +88,12 @@
                 </li>
                 <li>
                     <a href="{% url 'family_member' 19760525 %}">
-                        <div>Ceca</div>
+                        <div>Svetlana</div>
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'family_member' 19760702 %}">
-                        <div>Neno</div>
+                        <div>Nenad</div>
                     </a>
                 </li>
             </ul>
