@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 
 from blog_post.models import BlogPost
@@ -6,6 +7,8 @@ from utils.enums import FAMILY_MEMBER, BLOG_POST_STATE
 
 
 def family_member(request, member_id, related):
+    if int(member_id) not in FAMILY_MEMBER.keys():
+        raise Http404("This Samardzic family member does not exist")
     data = {
         'family_member_id': member_id,
         'family_member_first': FAMILY_MEMBER.display_name(member_id),
