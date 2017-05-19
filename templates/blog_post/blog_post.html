@@ -17,7 +17,13 @@
         </div>
         <div class="blog-post-tags-wrapper">
             <div class="blog-post-tags-label">tags:</div>
-            <div class="blog-post-tags">{{ post.tags }}</div>
+            {% for id, name in post.full_tags.items %}
+                {% if id == 0 %}
+                    <a href="{% url 'blog_posts:blog_posts_view' %}"><span class="blog-post-tags">{{ name }}</span></a>
+                {% else %}
+                    <a href="{% url 'family_member_related' id %}"><span class="blog-post-tags">{{ name }}</span></a>
+                {% endif %}
+            {% endfor %}
         </div>
         <div class="blog-post-content">{{ post.content }}</div>
         {% if post.image %}

@@ -16,6 +16,12 @@ class BlogPost(models.Model):
     def tag(self):
         return [FAMILY_MEMBER.display_label(tag_key) for tag_key in self.tags]
 
+    def full_tags(self):
+        full_tags = {}
+        for tag in self.tags:
+            full_tags[int(tag)] = FAMILY_MEMBER.display_name(tag)
+        return full_tags
+
     def __str__(self):
         return '{}'.format(self.title)
 

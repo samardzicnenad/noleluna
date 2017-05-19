@@ -27,8 +27,13 @@
     font-weight: bold;
     font-size: smaller;
 
+    a {
+      text-decoration: none;
+    }
+
     .blog-post-tags {
       color: olive;
+      margin-right: 5px;
     }
   }
 
