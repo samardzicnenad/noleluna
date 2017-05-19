@@ -22,8 +22,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', IndexBlogPostView.as_view(), name='index'),
-    url(r'^(?P<member_id>[0-9]{8})/$', views.family_member,  {'plus': False}, name='family_member'),
-    url(r'^(?P<member_id>[0-9]{8})/plus/$', views.family_member,  {'plus': True}, name='family_member_plus'),
+    url(r'^(?P<member_id>[0-9]{8})/$', views.family_member, {'related': False}, name='family_member'),
+    url(r'^(?P<member_id>[0-9]{8})/related/$', views.family_member, {'related': True}, name='family_member_related'),
     url(r'^admin/', admin.site.urls),
 
     url(r'^posts/', include('blog_post.urls', namespace="blog_posts")),
