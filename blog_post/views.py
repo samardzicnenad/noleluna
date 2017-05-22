@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views.generic import View
-
 from blog_post.models import BlogPost
 from noleluna.settings import MEDIA_URL
 from utils.enums import BLOG_POST_STATE

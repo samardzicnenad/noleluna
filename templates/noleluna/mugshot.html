@@ -1,10 +1,17 @@
-{% load static custom_tags sass_tags compress %}
+{% load static sass_tags compress %}
+
+{% comment %}
+####################################
+{% load custom_tags %}
+####################################
+{% endcomment %}
 
 {% compress css %}
     <link rel="stylesheet" href="{% sass_src 'noleluna/css/mugshot.scss' %}" type="text/x-scss" charset="utf-8">
 {% endcompress %}
 
 {% comment %}
+########################################################################################################################
     <p>KEEPING AN EXAMPLE OF SWITCH-CASE USAGE</p>
     {% switch family_member_id %}
         {% case '20110913' %}
@@ -18,6 +25,7 @@
         {% else %}
             <img class="mugshot" src="{% static 'noleluna/img/samardzici.png' %}"/>
     {% endswitch %}
+########################################################################################################################
 {% endcomment %}
 
 {% with "noleluna/img/"|add:family_member_id|add:".png" as image_src %}

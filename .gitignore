@@ -102,3 +102,6 @@ ENV/
 
 # media files
 media/
+static/CACHE/
+static/admin/
+static/markdownx/

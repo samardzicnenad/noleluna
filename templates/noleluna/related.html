@@ -1,5 +1,5 @@
 {% extends "noleluna/index.html" %}
-{% load sass_tags compress %}
+{% load compress sass_tags %}
 
 {% block css_head %}
     {{ block.super }}
@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="else">
+    <div class="related">
         <div>Hey, {{ user|capfirst }}.</div>
         <div>There {{ posts|length|pluralize:"is,are" }} {{ posts|length }} published post{{ posts|length|pluralize }} about {{family_member_first}}:</div>
     </div>

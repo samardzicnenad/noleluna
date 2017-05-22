@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^posts/', include('blog_post.urls', namespace="blog_posts")),
+
+    url(r'^markdownx/', include('markdownx.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

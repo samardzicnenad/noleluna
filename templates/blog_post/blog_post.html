@@ -1,4 +1,4 @@
-{% load sass_tags compress %}
+{% load compress sass_tags %}
 
 {% compress css %}
     <link rel="stylesheet" href="{% sass_src 'blog_post/css/blog_post.scss' %}" type="text/x-scss" charset="utf-8">
@@ -25,10 +25,11 @@
                 {% endif %}
             {% endfor %}
         </div>
-        <div class="blog-post-content">{{ post.content }}</div>
-        {% if post.image %}
-            <img id="image-{{ post.pk }}" class="blog-post-image" src="{{media_url}}{{ post.image }}">
-        {% endif %}
-        <br/>
+        <div class="blog-post-content-container">
+            {% if post.image %}
+                <img id="image-{{ post.pk }}" class="blog-post-image" src="{{media_url}}{{ post.image }}">
+            {% endif %}
+            <div class="blog-post-content">{{ post.display_content|safe }}</div>
+        </div>
     </div>
 {% endblock %}

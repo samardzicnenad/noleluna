@@ -2,24 +2,24 @@
   margin: 30px;
 
   .left-bio {
-    width: 50%;
     float: left;
     padding-right: 20px;
+    width: 50%;
 
     .bio-item-greet {
-      font-size: 22px;
       color: firebrick;
+      font-size: 22px;
       font-weight: bold;
     }
 
     .bio-item {
-      font-size: 20px;
       color: steelblue;
+      font-size: 20px;
     }
   }
 
   .right-bio {
-    width: 50%;
     float: right;
+    width: 50%;
   }
 }

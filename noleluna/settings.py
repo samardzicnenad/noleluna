@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'bootstrap3',
     'compressor',
+    'markdownx',
     'sass_processor',
 
     'blog_post',
@@ -79,9 +79,10 @@ TEMPLATES = [
     },
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # location of the project static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
 ]
 
 # location where SASS will generate files too
@@ -96,7 +97,13 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-COMPRESS_ROOT = os.path.join(BASE_DIR, 'compressed_static')
+MARKDOWNX_URLS_PATH = '/markdownx/markdownify/'
+MARKDOWNX_IMAGE_MAX_SIZE = {'size': (500, 0), 'quality': 90}
+MARKDOWNX_MARKDOWN_EXTENSIONS = [
+    'markdown.extensions.extra',
+    'markdown.extensions.nl2br',
+    'markdown.extensions.smarty',
+]
 
 WSGI_APPLICATION = 'noleluna.wsgi.application'
 

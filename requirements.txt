@@ -1,7 +1,8 @@
 Django==1.10.6
-# django-bootstrap3==8.2.1
 django-compressor==2.1.1
+django-markdownx==2.0.21
 django-multiselectfield==0.1.6
 django-sass-processor==0.5.4
 libsass==0.12.3
+Markdown==2.6.8
 Pillow==4.1.1

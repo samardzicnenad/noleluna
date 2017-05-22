@@ -1,13 +1,13 @@
 .blog-post {
-  margin: 30px 40px;
-  border-radius: 10px;
   border: 2px outset crimson;
+  border-radius: 10px;
+  margin: 30px 40px;
   padding: 0 10px;
 
   .blog-post-title {
+    color: darkorange;
     font-size: 22px;
     font-weight: bold;
-    color: darkorange;
     padding-top: 10px;
   }
 
@@ -23,9 +23,9 @@
   }
 
   .blog-post-tags-wrapper {
-    margin-top: 5px;
-    font-weight: bold;
     font-size: smaller;
+    font-weight: bold;
+    margin-top: 5px;
 
     a {
       text-decoration: none;
@@ -37,13 +37,15 @@
     }
   }
 
-  .blog-post-content {
-    margin-top: 20px;
-  }
+  .blog-post-content-container {
 
-  .blog-post-image {
+    min-height: 222px;
     margin-top: 20px;
-    padding-bottom: 10px;
-    height: 600px;
+
+    .blog-post-image {
+      float: left;
+      height: 222px;
+      margin-right: 10px;
+    }
   }
 }
